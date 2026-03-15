@@ -1,0 +1,19 @@
+# OpenTofu / Terraform
+.terraform/
+*.tfstate.backup
+*.tfstate.*.backup
+.terraform.tfstate.lock.info
+
+# Generated config (temporary, used during import)
+generated.tf
+
+# Secrets
+.envrc
+*.tfvars
+*.tfvars.json
+
+# OS
+.DS_Store
+
+# Crash logs
+crash.log
