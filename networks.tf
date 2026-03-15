@@ -19,7 +19,6 @@ resource "unifi_network" "default" {
     time_offset_enabled = false
     boot = {
       enabled = false
-      server  = ""
     }
     wins = {
       enabled = false
