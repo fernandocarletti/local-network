@@ -8,13 +8,18 @@ data "unifi_client_qos_rate" "default" {
   name = "Default"
 }
 
+locals {
+  ap_group_ids  = [data.unifi_ap_group.default.id]
+  user_group_id = data.unifi_client_qos_rate.default.id
+}
+
 resource "unifi_wlan" "felis" {
   name          = "Felis"
   security      = "wpapsk"
   passphrase    = var.wlan_passphrase_felis
   network_id    = unifi_network.default.id
-  ap_group_ids  = [data.unifi_ap_group.default.id]
-  user_group_id = data.unifi_client_qos_rate.default.id
+  ap_group_ids  = local.ap_group_ids
+  user_group_id = local.user_group_id
 
   # Radio
   wlan_band  = "5g"
@@ -53,8 +58,8 @@ resource "unifi_wlan" "trizte" {
   security      = "wpapsk"
   passphrase    = var.wlan_passphrase_trizte
   network_id    = unifi_network.default.id
-  ap_group_ids  = [data.unifi_ap_group.default.id]
-  user_group_id = data.unifi_client_qos_rate.default.id
+  ap_group_ids  = local.ap_group_ids
+  user_group_id = local.user_group_id
 
   # Radio
   wlan_band  = "2g"
@@ -93,8 +98,8 @@ resource "unifi_wlan" "cerio" {
   security      = "wpapsk"
   passphrase    = var.wlan_passphrase_cerio
   network_id    = unifi_network.default.id
-  ap_group_ids  = [data.unifi_ap_group.default.id]
-  user_group_id = data.unifi_client_qos_rate.default.id
+  ap_group_ids  = local.ap_group_ids
+  user_group_id = local.user_group_id
 
   # Radio
   wlan_band  = "5g"
