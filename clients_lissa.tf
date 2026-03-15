@@ -1,12 +1,16 @@
+locals {
+  group_lissa = "Lissa"
+}
+
 resource "unifi_client" "lissa_iphone" {
   mac    = "a4:f9:21:b8:eb:5c"
   name   = "Lissa iPhone"
-  groups = ["Lissa"]
+  groups = [local.group_lissa]
 }
 
 resource "unifi_client" "lissa_ipad" {
   mac    = "50:57:8a:55:00:c9"
-  groups = ["Lissa"]
+  groups = [local.group_lissa]
 }
 
 resource "unifi_client" "lissa_macbook" {
@@ -17,11 +21,11 @@ resource "unifi_client" "lissa_macbook" {
 
   mac    = each.value
   name   = "Lissa MacBook"
-  groups = ["Lissa"]
+  groups = [local.group_lissa]
 }
 
 resource "unifi_client" "lissa_kindle" {
   mac    = "20:a1:71:fe:0f:e1"
   name   = "Lissa Kindle"
-  groups = ["Lissa"]
+  groups = [local.group_lissa]
 }
